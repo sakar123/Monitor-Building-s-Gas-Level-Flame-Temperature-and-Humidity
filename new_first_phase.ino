@@ -1,16 +1,11 @@
 #include <dht.h>
 #include <Adafruit_Sensor.h>
-#include <cactus_io_DS18B20.h>
 //#define BLYNK_PRINT Serial1
 #include <BlynkSimpleStream.h>
 #define DHT11_PIN 2
 #include "pitches.h"
 char auth[] = "FkGM0szdB65cVUH6FZXCpjbVb8OcxpYX";
-//DS18S20 Signal pin on digital 2
-int DS18B20_Pin = 7;
 BlynkTimer timer;
-//Creating DS18B20 object
-DS18B20 ds(DS18B20_Pin);
 //Creating DHT object
 dht DHT;
 // This function will be called every time Slider Widget
@@ -29,7 +24,7 @@ int melody[] = {NOTE_C4, NOTE_G3, NOTE_G3, NOTE_A3, NOTE_G3, 0, NOTE_B3, NOTE_C4
 
 // note durations: 4 = quarter note, 8 = eighth note, etc.:
 int noteDurations[] = { 4, 8, 8, 4, 4, 4, 4, 4};
-BLYNK_WRITE(V6)
+BLYNK_WRITE(V6)//to turn the alarm off manually
 {
   button = param.asInt(); // assigning incoming value from pin V6 to a variable
 
